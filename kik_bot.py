@@ -18,9 +18,9 @@ from kik_unofficial.datatypes.xmpp.xiphias import *
 from kik_unofficial.datatypes.xmpp.group_adminship import *
 
 # Variables
-username = ''
-password = ''
-bot_admins = ''
+username = ''  #  Put your bots username here
+password = ''  # Put your bots password here
+bot_admins = '' #  I would at least put your JID here, if you want to add more people, simply seperate each jid with a comma
 listfr = ['a', 'b', 'c', 'd', 'e', 'f']
 listfn = ['0', '1', '2', '3', '4', '5', '6', '7', '8']
 x = ''.join(random.choice(listfn + listfr) for _ in range(32))
@@ -62,7 +62,7 @@ class KikBot(KikClientCallback):
 		def on_login_ended(self, response: LoginResponse):
             print(Fore.RED + Style.BRIGHT + "Full name: {} {}".format(response.first_name, response.last_name) + Style.RESET_ALL)
 			
-		def keep_alive(self):
+		def keep_alive(self):  #  I added this into my code to constantly keep my bot connected to kiks servers, otherwise if groups are being quiet your bot will timeout
 			time.sleep(120)
 			while True:
 				print("staying alive")
